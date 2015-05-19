@@ -138,6 +138,11 @@
                                 <action selector="dismiss:" destination="E5I-o4-Rls" id="Z5D-Ae-Vwh"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="yJt-bO-xaJ">
+                            <connections>
+                                <action selector="dismiss:" destination="E5I-o4-Rls" id="IU2-0Y-B3I"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maO-iI-XRg" userLabel="First Responder" sceneMemberID="firstResponder"/>
