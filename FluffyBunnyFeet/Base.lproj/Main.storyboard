@@ -130,37 +130,7 @@
                     <view key="view" contentMode="scaleToFill" id="hT7-SE-hYI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oBD-Kn-s10">
-                                <rect key="frame" x="246" y="159" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="brm-jJ-5if">
-                                <rect key="frame" x="246" y="0.0" width="97" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="ZKD-aa-REY"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JOU-FS-kkU">
-                                <rect key="frame" x="246" y="85" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="brm-jJ-5if" firstAttribute="leading" secondItem="hT7-SE-hYI" secondAttribute="leading" constant="246" id="1a8-Gi-MhD"/>
-                            <constraint firstItem="brm-jJ-5if" firstAttribute="top" secondItem="hT7-SE-hYI" secondAttribute="top" id="Dkb-dC-QeL"/>
-                            <constraint firstItem="oBD-Kn-s10" firstAttribute="trailing" secondItem="JOU-FS-kkU" secondAttribute="trailing" id="T0m-c5-ts8"/>
-                            <constraint firstItem="oBD-Kn-s10" firstAttribute="leading" secondItem="JOU-FS-kkU" secondAttribute="leading" id="VbD-aU-oWA"/>
-                            <constraint firstItem="JOU-FS-kkU" firstAttribute="top" secondItem="brm-jJ-5if" secondAttribute="bottom" constant="55" id="d5X-hm-nDJ"/>
-                            <constraint firstItem="brm-jJ-5if" firstAttribute="trailing" secondItem="JOU-FS-kkU" secondAttribute="trailing" id="dhD-Q8-N2X"/>
-                            <constraint firstItem="brm-jJ-5if" firstAttribute="leading" secondItem="JOU-FS-kkU" secondAttribute="leading" id="oJb-i8-O7v"/>
-                            <constraint firstItem="oBD-Kn-s10" firstAttribute="top" secondItem="JOU-FS-kkU" secondAttribute="bottom" constant="44" id="r2S-9K-TdH"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DyL-D0-hS3">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="bTN-LZ-jSx">
