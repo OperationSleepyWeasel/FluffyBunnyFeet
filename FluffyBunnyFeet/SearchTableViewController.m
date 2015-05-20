@@ -1,6 +1,9 @@
 #import "SearchTableViewController.h"
+#import "Result.h"
 
 @interface SearchTableViewController ()
+
+@property NSMutableArray *foundMovies;
 
 @end
 
@@ -17,6 +20,8 @@
     
     //TODO: remove then
     self.label.text = self.titleToSearch;
+    self.foundMovies = [[NSMutableArray alloc] init];
+    [self fetchGreeting];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,25 +29,67 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)fetchGreeting;
+{
+    NSString *url = @"";
+    NSString *apiKey = @"8ec7476e88d48365fd343370b9947b76";
+    NSString *baseUrl = @"http://api.themoviedb.org/3";
+    NSString *searchPath = @"/search/movie";
+    url = [url stringByAppendingString:baseUrl];
+    url = [url stringByAppendingString:searchPath];
+    url = [url stringByAppendingString:@"?query="];
+    url = [url stringByAppendingString:self.titleToSearch];
+    url = [url stringByAppendingString:@"&api_key="];
+    url = [url stringByAppendingString:apiKey];
+    
+    NSURL *searchUrl = [NSURL URLWithString:url];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"string url" message:url delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    [alert show];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:searchUrl];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response,
+                                               NSData *data, NSError *connectionError)
+     {
+         if (data.length > 0 && connectionError == nil)
+         {
+             NSDictionary *searchResult = [NSJSONSerialization JSONObjectWithData:data
+                                                                      options:0
+                                                                        error:NULL];
+             self.label.text = [[searchResult objectForKey:@"total_results"] stringValue];
+             
+             NSArray *results = [searchResult objectForKey:@"results"];
+             
+             for (int i = 0; i < results.count; i++) {
+                 Result *result = [[Result alloc] init];
+                 result.originalTitle = [results[i] objectForKey:@"original_title"];
+                 [self.foundMovies addObject: result];
+             }
+             [self.tableView reloadData];
+         }
+     }];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.foundMovies.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ResultCell" forIndexPath:indexPath];
     
-    // Configure the cell...
+    Result *result = self.foundMovies[indexPath.row];
+    cell.textLabel.text = [result originalTitle];
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
