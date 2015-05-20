@@ -18,8 +18,6 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    //TODO: remove then
-    self.label.text = self.titleToSearch;
     self.foundMovies = [[NSMutableArray alloc] init];
     [self fetchGreeting];
 }
@@ -44,8 +42,8 @@
     
     NSURL *searchUrl = [NSURL URLWithString:url];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"string url" message:url delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"string url" message:url delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+//    [alert show];
     
     NSURLRequest *request = [NSURLRequest requestWithURL:searchUrl];
     [NSURLConnection sendAsynchronousRequest:request
@@ -58,7 +56,6 @@
              NSDictionary *searchResult = [NSJSONSerialization JSONObjectWithData:data
                                                                       options:0
                                                                         error:NULL];
-             self.label.text = [[searchResult objectForKey:@"total_results"] stringValue];
              
              NSArray *results = [searchResult objectForKey:@"results"];
              
