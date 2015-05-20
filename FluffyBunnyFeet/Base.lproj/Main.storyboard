@@ -222,6 +222,9 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VBY-az-t8c" id="Gja-1t-WPX">
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="XIz-Pe-Y4M" kind="unwind" identifier="MovieSelected" unwindAction="unwindToList:" id="1t3-tT-gzx"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -232,7 +235,7 @@
                     <navigationItem key="navigationItem" id="ilh-JC-qBo">
                         <barButtonItem key="leftBarButtonItem" title="Return" id="rsO-Oz-y1C">
                             <connections>
-                                <segue destination="XIz-Pe-Y4M" kind="unwind" unwindAction="unwindToList:" id="2E3-y9-hQ2"/>
+                                <segue destination="XIz-Pe-Y4M" kind="unwind" identifier="" unwindAction="unwindToList:" id="8j7-nA-Kcq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

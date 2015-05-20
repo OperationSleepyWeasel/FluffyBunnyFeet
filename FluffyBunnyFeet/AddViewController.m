@@ -24,6 +24,12 @@
 }
 
 - (IBAction)unwindToList:(UIStoryboardSegue *) segue {
+    SearchTableViewController * source = [segue sourceViewController];
+    Result * selectedResult = source.selectedResult;
+    if (selectedResult != nil) {
+        self.titleField.text = selectedResult.originalTitle;
+        self.yearField.text = selectedResult.originalTitle;
+    }
 }
 
 #pragma mark - Navigation
