@@ -28,7 +28,10 @@
     Result * selectedResult = source.selectedResult;
     if (selectedResult != nil) {
         self.titleField.text = selectedResult.originalTitle;
-        self.yearField.text = selectedResult.originalTitle;
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyy"];
+        self.yearField.text = [formatter stringFromDate:selectedResult.releaseDate];
     }
 }
 

@@ -65,6 +65,11 @@
              for (int i = 0; i < results.count; i++) {
                  Result *result = [[Result alloc] init];
                  result.originalTitle = [results[i] objectForKey:@"original_title"];
+                 
+                 NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+                 [formatter setDateFormat:@"yyyy-MM-dd"];
+                 result.releaseDate = [formatter dateFromString:[results[i] objectForKey:@"release_date"]];
+                 
                  [self.foundMovies addObject: result];
              }
              [self.tableView reloadData];
