@@ -116,7 +116,7 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8">
+                    <navigationItem key="navigationItem" title="Movies" id="Zdf-7t-Un8">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="tWF-j5-QvL">
                             <connections>
                                 <segue destination="1yZ-Ac-BPU" kind="presentation" id="hJf-xo-Ss6"/>

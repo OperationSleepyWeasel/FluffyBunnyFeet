@@ -24,6 +24,8 @@
     if (self.detailItem) {
         self.titleLabel.text = [self.detailItem title];
         self.yearLabel.text = [NSString stringWithFormat:@"%d", self.detailItem.year];
+        
+        self.navigationItem.title = [self.detailItem title];
     }
 }
 
