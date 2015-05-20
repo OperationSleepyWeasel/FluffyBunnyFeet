@@ -2,6 +2,8 @@
 #import "DetailViewController.h"
 #import "MovieEntry.h"
 
+#import "AddViewController.h"
+
 @interface MasterViewController ()
 
 @property NSMutableArray *objects;
@@ -43,6 +45,15 @@
     entry2.title = @"Matrix 2";
     entry2.year = 2004;
     [self.movies addObject:entry2];
+}
+
+- (IBAction)unwindToList:(UIStoryboardSegue *) segue {
+    AddViewController * source = [segue sourceViewController];
+    MovieEntry * entry = source.entry;
+    if (entry != nil) {
+        [self.movies addObject:entry];
+        [self.tableView reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -1,6 +1,8 @@
 #import <UIKit/UIKit.h>
+#import "MovieEntry.h"
 
 @interface AddViewController : UIViewController
-- (IBAction)dismiss:(id)sender;
+
+@property MovieEntry * entry;
 
 @end
