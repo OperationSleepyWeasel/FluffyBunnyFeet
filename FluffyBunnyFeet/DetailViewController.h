@@ -4,7 +4,6 @@
 @interface DetailViewController : UIViewController
 
 @property (strong, nonatomic) MovieEntry *detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
 @end
 

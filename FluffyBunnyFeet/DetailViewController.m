@@ -1,6 +1,8 @@
 #import "DetailViewController.h"
 
 @interface DetailViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *yearLabel;
 
 @end
 
@@ -20,7 +22,8 @@
 - (void)configureView {
     // Update the user interface for the detail item.
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem title];
+        self.titleLabel.text = [self.detailItem title];
+        self.yearLabel.text = [NSString stringWithFormat:@"%d", self.detailItem.year];
     }
 }
 
