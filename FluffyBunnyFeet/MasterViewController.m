@@ -1,9 +1,13 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "MovieEntry.h"
 
 @interface MasterViewController ()
 
 @property NSMutableArray *objects;
+
+@property NSMutableArray *movies;
+
 @end
 
 @implementation MasterViewController
@@ -24,6 +28,21 @@
     //UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     //self.navigationItem.rightBarButtonItem = addButton;
     self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
+    self.movies = [[NSMutableArray alloc] init];
+    [self loadMovies];
+}
+
+- (void) loadMovies {
+    //TODO: load from persistence here
+    MovieEntry *entry = [[MovieEntry alloc] init];
+    entry.title = @"Matrix";
+    entry.year = 1999;
+    [self.movies addObject:entry];
+    MovieEntry *entry2 = [[MovieEntry alloc] init];
+    entry2.title = @"Matrix 2";
+    entry2.year = 2004;
+    [self.movies addObject:entry2];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,9 +64,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
+        MovieEntry *entry = self.movies[indexPath.row];
         DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-        [controller setDetailItem:object];
+        [controller setDetailItem:entry];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
     }
@@ -60,14 +79,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.objects.count;
+    return self.movies.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
 
-    NSDate *object = self.objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    MovieEntry *entry = self.movies[indexPath.row];
+    cell.textLabel.text = [entry title];
+    
     return cell;
 }
 
