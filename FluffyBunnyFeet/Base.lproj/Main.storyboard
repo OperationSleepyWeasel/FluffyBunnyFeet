@@ -132,17 +132,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sBA-xk-wPB">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sBA-xk-wPB">
                                 <rect key="frame" x="16" y="72" width="568" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Year" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vd4-l7-Gfg">
+                                <rect key="frame" x="16" y="110" width="568" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vd4-l7-Gfg" firstAttribute="trailing" secondItem="sBA-xk-wPB" secondAttribute="trailing" id="6XT-fl-X0C"/>
                             <constraint firstItem="sBA-xk-wPB" firstAttribute="top" secondItem="Rls-ZQ-yTf" secondAttribute="bottom" constant="8" symbolic="YES" id="6rB-tO-VRo"/>
                             <constraint firstItem="sBA-xk-wPB" firstAttribute="leading" secondItem="hT7-SE-hYI" secondAttribute="leadingMargin" id="8BH-Ud-ef7"/>
+                            <constraint firstItem="vd4-l7-Gfg" firstAttribute="top" secondItem="sBA-xk-wPB" secondAttribute="bottom" constant="8" symbolic="YES" id="OZK-CA-y22"/>
                             <constraint firstItem="sBA-xk-wPB" firstAttribute="trailing" secondItem="hT7-SE-hYI" secondAttribute="trailingMargin" id="eYH-Zb-K3k"/>
+                            <constraint firstItem="vd4-l7-Gfg" firstAttribute="leading" secondItem="sBA-xk-wPB" secondAttribute="leading" id="tqQ-7P-fOB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DyL-D0-hS3">
@@ -162,6 +171,7 @@
                     <connections>
                         <outlet property="saveButton" destination="yJt-bO-xaJ" id="uc5-sA-ZzT"/>
                         <outlet property="titleField" destination="sBA-xk-wPB" id="Fww-ZE-8R0"/>
+                        <outlet property="yearField" destination="vd4-l7-Gfg" id="aXi-YF-CPZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maO-iI-XRg" userLabel="First Responder" sceneMemberID="firstResponder"/>

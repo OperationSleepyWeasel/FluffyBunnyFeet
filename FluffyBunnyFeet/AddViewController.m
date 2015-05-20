@@ -2,6 +2,7 @@
 
 @interface AddViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
+@property (weak, nonatomic) IBOutlet UITextField *yearField;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 
 @end
@@ -25,6 +26,7 @@
     if (self.titleField.text.length > 0) {
         self.entry = [[MovieEntry alloc] init];
         self.entry.title = self.titleField.text;
+        self.entry.year = self.yearField.text.intValue;
     }
 }
 @end
