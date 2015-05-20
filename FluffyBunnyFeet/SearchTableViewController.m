@@ -39,6 +39,7 @@
     url = [url stringByAppendingString:self.titleToSearch];
     url = [url stringByAppendingString:@"&api_key="];
     url = [url stringByAppendingString:apiKey];
+    url = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSURL *searchUrl = [NSURL URLWithString:url];
     
